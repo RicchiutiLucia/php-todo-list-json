@@ -12,7 +12,7 @@
         <div id="app">
         <div class="container">
             <ul class="list-group">
-                <li v-for="todo in todoList" class="list-group-item">{{todo}}</li>
+                <li v-for="todo in todoList" class="list-group-item">{{todo.task}}</li>
             </ul>
             
         </div>
