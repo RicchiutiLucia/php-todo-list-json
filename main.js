@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             todoList: [],
+            todoItem : '',
             
         }
     },
@@ -14,6 +15,23 @@ createApp({
                 console.log(response);
                 this.todoList = response.data;
             })
+        },
+        addTodo(){
+            if(this.todoItem != ''){
+                const data = {
+                    todoItem : this.todoItem
+                };
+                axios.post('server.php', data,
+                {
+                    headers: { 'Content-Type': 'multipart/form-data'}
+                }
+                ).then(response => {
+                    this.todoList = response.data;
+                    this.todoItem = '';
+                });
+
+            }
+            
         }
 
     },

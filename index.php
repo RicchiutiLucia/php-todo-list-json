@@ -8,21 +8,18 @@
     <title>TODOLIST</title>
 </head>
 <body>
-
         <div id="app">
         <div class="container">
             <ul class="list-group">
-                <li v-for="todo in todoList" class="list-group-item">{{todo.task}}</li>
+                <li v-for="(todo,index) in todoList" class="list-group-item">{{todo.task}}</li>
             </ul>
+
+            <input v-model="todoItem" type="text"/>
+            <button class="btn btn-primary" @click="addTodo" >Aggiungi Todo</button>
             
         </div>
         
         </div>
-
-
-
-
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.6/axios.min.js" integrity="sha512-06NZg89vaTNvnFgFTqi/dJKFadQ6FIglD6Yg1HHWAUtVFFoXli9BZL4q4EO1UTKpOfCfW5ws2Z6gw49Swsilsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src='main.js'></script>
