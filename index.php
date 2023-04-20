@@ -8,9 +8,9 @@
     <title>TODOLIST</title>
 
     <style>
-        .line-through {
-            text-decoration: line-through;
-        }
+    .line-through {
+    text-decoration: line-through;
+  }
     </style>
 </head>
 <body>
@@ -27,16 +27,11 @@
 
         <div class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
 
-          <div class="col flex-grow-1">
-            <input v-model="todoItem.text" type="text" class="form-control" id="newItemInput" placeholder="Inserisci un nuovo todo" @keyup.enter="addTodoCheck">
+          <div class="col-auto flex-grow-1">
+            <input v-model="todoItem" type="text" class="form-control" id="newItemInput" placeholder="Inserisci un nuovo todo" @keyup.enter="addTodoCheck">
           </div>
 
-          <div class="form-check col">
-            <input class="form-check-input" type="checkbox" id="newTodoCheck" v-model="todoItem.done">
-            
-          </div>
-
-          <div class="col">
+          <div class="col-12">
             <button type="button" class="btn btn-primary" @click="addTodoCheck">Inserisci</button>
           </div>
 
