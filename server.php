@@ -28,8 +28,8 @@ $todoList = [
                     
                     
                     
-if (isset($_POST['todoItem'])) {
-        $todoList[] = $_POST['todoItem'];
+if (isset($_POST['todoItem']) && !empty($_POST['todoItem'])) {
+        $todoList[] = ['task' => $_POST['todoItem'], 'done' => false,];
 }
 
 

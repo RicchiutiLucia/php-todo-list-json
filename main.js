@@ -17,9 +17,9 @@ createApp({
             })
         },
         addTodo(){
-            if(this.todoItem != ''){
+            
                 const data = {
-                    todoItem : this.todoItem
+                    todoItem : this.todoItem,
                 };
                 axios.post('server.php', data,
                 {
@@ -30,8 +30,13 @@ createApp({
                     this.todoItem = '';
                 });
 
-            }
             
+            
+        },
+        addTodoCheck(){
+            if(this.todoItem && this.todoItem.trim() !=''){
+                this.addTodo();
+            }
         }
 
     },

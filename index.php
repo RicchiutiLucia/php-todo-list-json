@@ -8,16 +8,31 @@
     <title>TODOLIST</title>
 </head>
 <body>
-        <div id="app">
-        <div class="container">
-            <ul class="list-group">
-                <li v-for="(todo,index) in todoList" class="list-group-item">{{todo.task}}</li>
-            </ul>
+        <div id="app"  class="text-bg-dark vh-100">
+            <header class="text-center py-5">
+                <h1 class="display-1">TODOLIST JSON</h1>
+            </header>
+            <main>
+      <div class="container">
 
-            <input v-model="todoItem" type="text"/>
-            <button class="btn btn-primary" @click="addTodo" >Aggiungi Todo</button>
-            
+        <ul class="list-group my-5">
+          <li v-for="(todo,index) in todoList" class="list-group-item"> {{todo.task}} </li>
+        </ul>
+
+        <div class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+
+          <div class="col-auto flex-grow-1">
+            <input v-model="todoItem" type="text" class="form-control" id="newItemInput" placeholder="Inserisci un nuovo todo" @keyup.enter="addTodoCheck">
+          </div>
+
+          <div class="col-12">
+            <button type="button" class="btn btn-primary" @click="addTodoCheck">Inserisci</button>
+          </div>
+
         </div>
+
+      </div>
+    </main>
         
         </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
