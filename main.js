@@ -4,7 +4,10 @@ createApp({
     data() {
         return {
             todoList: [],
-            todoItem : '',
+            todoItem : {
+                task:'',
+                done:false,
+            },
             
         }
     },
@@ -19,7 +22,8 @@ createApp({
         addTodo(){
             
                 const data = {
-                    todoItem : this.todoItem,
+                    task : this.todoItem.task,
+                    done : this.todoItem.done,
                 };
                 axios.post('server.php', data,
                 {
@@ -27,14 +31,15 @@ createApp({
                 }
                 ).then(response => {
                     this.todoList = response.data;
-                    this.todoItem = '';
+                    this.todoItem.task = '';
+                    this.todoItem.done = false;
                 });
 
             
             
         },
         addTodoCheck(){
-            if(this.todoItem && this.todoItem.trim() !=''){
+            if(this.todoItem.task && this.todoItem.task.trim() !=''){
                 this.addTodo();
             }
         }
