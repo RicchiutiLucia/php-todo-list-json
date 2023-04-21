@@ -37,6 +37,20 @@ createApp({
             if(this.todoItem && this.todoItem.trim()!=''){
                 this.addTodo();
             }
+        },
+        changeDone(index){
+            const newChange = this.todoList[index].done == 'true' ? 'false':'true';
+            this.todoList[index].done = newChange ;
+
+            const data = {
+                updateTask: newChange,
+                listIndex: index
+            }
+            axios.post('server.php', data, 
+            {
+                headers: {'Content-Type': 'multipart/form-data'}
+            });
+
         }
 
     },

@@ -22,7 +22,8 @@
       <div class="container">
 
         <ul class="list-group my-5">
-          <li v-for="(todo,index) in todoList" class="list-group-item" :class="todo.done?'line-through':''"> {{todo.task}} </li>
+          <li v-if="todoList.length == 0" class="list-group-item text-success text-center">Non ci sono altri impegni in programma</li>
+          <li v-else v-for="(todo,index) in todoList" @click="changeDone(index)" class="list-group-item" :class="todo.done == 'false'?'line-through':''"> {{todo.task}} </li>
         </ul>
 
         <div class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
