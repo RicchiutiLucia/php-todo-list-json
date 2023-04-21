@@ -51,7 +51,20 @@ createApp({
                 headers: {'Content-Type': 'multipart/form-data'}
             });
 
-        }
+        },
+        deleteTodo(index){
+          const data = {
+            operation: 'delete',
+            index,
+          };
+    
+          axios.post('server.php', data,
+            {
+              headers: { 'Content-Type': 'multipart/form-data' }
+            }).then(response => {
+              this.todoList = response.data;
+            })
+        },
 
     },
     mounted(){

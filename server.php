@@ -35,9 +35,11 @@ if (isset($_POST['todoItem']) && !empty($_POST['todoItem'])) {
 }
 
 if(isset($_POST['updateTask']) && !empty($_POST['updateTask']) && isset($_POST['listIndex']) && !empty($_POST['listIndex'])){
-    $todoList[$_POST['listIndex']]['state'] = $_POST['updateTask'];
+    $todoList[$_POST['listIndex']]['done'] = $_POST['updateTask'];
     file_put_contents('todolist.json', json_encode($todoList));
 }
+
+
 
 
 header('Content-Type: application/json');
