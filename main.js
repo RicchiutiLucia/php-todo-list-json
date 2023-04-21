@@ -54,8 +54,9 @@ createApp({
         },
         deleteTodo(index){
           const data = {
-            operation: 'delete',
-            index,
+            delete: 'delete',
+            index: index
+            
           };
     
           axios.post('server.php', data,
