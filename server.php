@@ -31,15 +31,6 @@ if(file_exists('todolist.json')){
                     
 if (isset($_POST['todoItem']) && !empty($_POST['todoItem'])) {
         $todoList[] = ['task' => $_POST['todoItem'], 'done' => false,];
-        
-
-       
-
-        if(( isset($_POST['index']))){
-            array_splice($todoList,$_POST['index'],1);
-        
-        }
-
         file_put_contents('todolist.json', json_encode($todoList));
        
   
