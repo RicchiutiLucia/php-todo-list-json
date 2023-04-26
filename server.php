@@ -31,26 +31,29 @@ if(file_exists('todolist.json')){
                     
 if (isset($_POST['todoItem']) && !empty($_POST['todoItem'])) {
         $todoList[] = ['task' => $_POST['todoItem'], 'done' => false,];
+        
 
-        if(isset($_POST['updateTask']) && !empty($_POST['updateTask']) && isset($_POST['listIndex']) && !empty($_POST['listIndex']) ){
-            $todoList[$_POST['listIndex']]['done'] = $_POST['updateTask'];
-            
+       
+
+        if(( isset($_POST['index']))){
+            array_splice($todoList,$_POST['index'],1);
         
         }
 
+        file_put_contents('todolist.json', json_encode($todoList));
        
   
-}
-if(( isset($_POST['index']))){
-    array_splice($todoList,$_POST['index'],1);
+}elseif((isset($_POST['updateTask']) && !empty($_POST['updateTask']) && isset($_POST['listIndex']) && !empty($_POST['listIndex']) )){
+        $todoList[$_POST['listIndex']]['done'] = $_POST['updateTask'];
+
+        file_put_contents('todolist.json', json_encode($todoList));
+
+}elseif((isset($_POST['delete']))) {
+    $index = $_POST['delete'];
+    array_splice($todoList,$index,1);
+    file_put_contents('todolist.json', json_encode($todoList));
 
 }
-
-
-
-
-file_put_contents('todolist.json', json_encode($todoList));
-
 
 
 

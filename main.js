@@ -49,13 +49,14 @@ createApp({
             axios.post('server.php', data, 
             {
                 headers: {'Content-Type': 'multipart/form-data'}
+            }).then(response => {
+                this.todoList = response.data;
             });
 
         },
         deleteTodo(index){
           const data = {
-            delete: 'delete',
-            index: index
+            delete: index,
             
           };
     
